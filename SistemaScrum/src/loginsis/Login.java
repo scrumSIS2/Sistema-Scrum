@@ -200,7 +200,7 @@ public class Login extends javax.swing.JFrame {
             }
         });
     }
-
+//hay q controlar bien la base de datos 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
