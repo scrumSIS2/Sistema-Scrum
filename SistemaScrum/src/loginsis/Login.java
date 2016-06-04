@@ -147,7 +147,6 @@ public class Login extends javax.swing.JFrame {
                         miembro.setId(auxid);
                         miembro.setVisible(true);
                         this.setVisible(false);
-                        System.out.println("estoy aqui");
                     }                   
                 }                
             }

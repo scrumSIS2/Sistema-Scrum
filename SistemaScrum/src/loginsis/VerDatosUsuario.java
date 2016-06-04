@@ -168,13 +168,7 @@ public class VerDatosUsuario extends javax.swing.JFrame {
          try{
             Class.forName("com.mysql.jdbc.Driver");
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost/ScrumSistema","root","");
-            //String sql="ALTER TABLE info_usuarios  (nombre,apellido,telefono,email,direccion)"+"VALUES(?,?,?,?,?)"
-            //PreparedStatement ps=con.prepareStatement(sql);
-            //.setString(2,jTextField2.getText());
-            //ps.setString(3,jTextField3.getText());
-            //ps.setString(4,jTextField4.getText());
-            //ps.setString(5,jTextField5.getText());
-            //ps.executeUpdate();
+            
             this.setVisible(false);
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,"Error: "+e.getMessage());

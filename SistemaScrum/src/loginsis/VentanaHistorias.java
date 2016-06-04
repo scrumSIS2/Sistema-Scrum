@@ -23,6 +23,7 @@ public class VentanaHistorias extends javax.swing.JFrame {
         initComponents();
         Limpiar();
     }
+    VentanaScrumMaster actualizarDato;
     public void Limpiar(){
         txtNom.setText("");
         txtYo.setText("");
@@ -266,6 +267,7 @@ public class VentanaHistorias extends javax.swing.JFrame {
         }catch(Exception e){
             JOptionPane.showMessageDialog(null,"Error: "+e.getMessage());
         }
+         actualizarDato.llenarHistorias();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -334,6 +336,10 @@ public class VentanaHistorias extends javax.swing.JFrame {
     private javax.swing.JTextArea txtTal;
     private javax.swing.JTextField txtYo;
     // End of variables declaration//GEN-END:variables
+
+    void enviarClase(VentanaScrumMaster aThis) {
+        actualizarDato = aThis;
+    }
 
     
 }
