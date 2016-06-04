@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : PRUEBAS
-Source Server Version : 50141
+Source Server         : localhost
+Source Server Version : 50505
 Source Host           : localhost:3306
 Source Database       : scrumsistema
 
 Target Server Type    : MYSQL
-Target Server Version : 50141
+Target Server Version : 50505
 File Encoding         : 65001
 
-Date: 2016-06-04 19:16:47
+Date: 2016-06-04 19:57:52
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,7 +29,7 @@ CREATE TABLE `historias` (
   `Importancia` int(11) NOT NULL,
   `Complejidad` int(11) NOT NULL,
   PRIMARY KEY (`Id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of historias
@@ -40,6 +40,7 @@ INSERT INTO `historias` VALUES ('3', 'fulll', 'miembro', 'una baseadministrar	',
 INSERT INTO `historias` VALUES ('4', 'interfas', 'alvaro', 'crear interfas', 'pueda ver', 'rapido', '12', '12');
 INSERT INTO `historias` VALUES ('5', 'conexion', 'daniel', 'quiero ser kk		', 'no salga	', 'rapido', '5', '4');
 INSERT INTO `historias` VALUES ('6', 'Daykor', 'soy kk', 'rapides', 'se vea', 'optimo', '3', '2');
+INSERT INTO `historias` VALUES ('7', 'observar', 'miembro', 'observar info', 'los usuarios sepan', 'rapido', '4', '5');
 
 -- ----------------------------
 -- Table structure for `horarios`
@@ -69,17 +70,15 @@ CREATE TABLE `info_usuarios` (
   `email` varchar(40) NOT NULL,
   `direccion` varchar(40) NOT NULL,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of info_usuarios
 -- ----------------------------
 INSERT INTO `info_usuarios` VALUES ('1', 'Juan Daniel', 'Sanchez Montaño', '60398621', 'juandanielsanchez20130@gmail.com', 'Av.Petrolera km 2.5');
 INSERT INTO `info_usuarios` VALUES ('2', 'Favio', 'Torihuano', '61619012', 'favio@hotmail.com', 'Quillacollo');
-INSERT INTO `info_usuarios` VALUES ('3', 'Kevin', 'Lopez', '72727273', 'kevin_kaka@gmail.com', 'Quillacollo');
-INSERT INTO `info_usuarios` VALUES ('4', 'Juan KK', 'Sanchez Montaño', '60398621', 'juandanielsanchez20130@gmail.com', 'Av.Petrolera km 2.5');
-INSERT INTO `info_usuarios` VALUES ('5', 'Favio 123', 'Torihuano', '61619012', 'favio@hotmail.com', 'Quillacollo');
-INSERT INTO `info_usuarios` VALUES ('6', 'Favioyugyugyugtf', 'Torihuano', '61619012', 'favio@hotmail.com', 'Quillacollo');
+INSERT INTO `info_usuarios` VALUES ('3', 'roberto', 'ahenke', '456789456', 'dsfsk@gmail.com', '777nnskkkdl');
+INSERT INTO `info_usuarios` VALUES ('4', 'david', 'valencia', '45164547', 'tresd@gmail.com', '11dfgd2f5');
 
 -- ----------------------------
 -- Table structure for `login_usuarios`
@@ -91,13 +90,15 @@ CREATE TABLE `login_usuarios` (
   `pass` int(11) NOT NULL,
   `tipo_usuario` varchar(20) NOT NULL,
   PRIMARY KEY (`id_usuario`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of login_usuarios
 -- ----------------------------
 INSERT INTO `login_usuarios` VALUES ('1', 'daniel', '123', 'miembro');
 INSERT INTO `login_usuarios` VALUES ('2', 'favio', '123', 'scrum_master');
+INSERT INTO `login_usuarios` VALUES ('3', 'roberto', '123', 'miembro');
+INSERT INTO `login_usuarios` VALUES ('4', 'david', '123', 'miembro');
 
 -- ----------------------------
 -- Table structure for `tareas`
