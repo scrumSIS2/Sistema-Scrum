@@ -9,12 +9,11 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
-import javax.naming.spi.DirStateFactory;
 import javax.swing.JOptionPane;
 
 /**
  *
- * @author Daykor
+ * @author Daniel
  */
 public class Login extends javax.swing.JFrame {
 
@@ -118,13 +117,11 @@ public class Login extends javax.swing.JFrame {
         
         try {
             Class.forName("com.mysql.jdbc.Driver");
-            Connection con = DriverManager.getConnection("jdbc:mysql://localhost:8889/ScrumSistema","root","root");
-        
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ScrumSistema","root",""); 
             PreparedStatement statement = con.prepareStatement("select id_usuario,usuario,pass,tipo_usuario from login_usuarios");
             ResultSet result = statement.executeQuery();
             boolean band =false;
-            boolean user = false;
-            
+            boolean user = false;        
             while (!band && result.next()) {                
                 String auxnombre="";
                 String auxid="";
@@ -135,18 +132,15 @@ public class Login extends javax.swing.JFrame {
                     }
                     auxnombre=jTextField1.getText();
                     auxid=result.getString("id_usuario");
-                    band=true;
-                    
-                }
-                
+                    band=true;                    
+                }               
                 if (band) {
                     if (user == true) {
                        master = new VentanaScrumMaster();
                        master.setNombre(auxnombre);
                        master.setId(auxid);
                        master.setVisible(true);
-                       this.setVisible(false);
-                       
+                       this.setVisible(false);     
                     } else {
                         miembro=new VentanaMiembro();
                         miembro.setNombre(auxnombre);
@@ -154,11 +148,8 @@ public class Login extends javax.swing.JFrame {
                         miembro.setVisible(true);
                         this.setVisible(false);
                         System.out.println("estoy aqui");
-                    }
-                    
-                    
-                } 
-                
+                    }                   
+                }                
             }
         } catch (Exception e) {
            JOptionPane.showMessageDialog(null, "error");
@@ -174,6 +165,7 @@ public class Login extends javax.swing.JFrame {
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
          * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
          */
+        
         try {
             for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
                 if ("Nimbus".equals(info.getName())) {
