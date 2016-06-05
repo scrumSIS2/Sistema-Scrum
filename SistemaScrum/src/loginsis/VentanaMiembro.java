@@ -32,6 +32,7 @@ public class VentanaMiembro extends javax.swing.JFrame {
         initComponents();
         llenarHistorias();
         llenarEquipo();
+        llenarTareas();
     }
     public void setNombre(String nombre){
         this.nombre=nombre;
@@ -56,6 +57,28 @@ public class VentanaMiembro extends javax.swing.JFrame {
             }
             jTable1.setModel(model);
             jTable1.getColumnModel().getColumn(1).setPreferredWidth(1000);
+        }catch(Exception e){
+        }
+    }
+    public void llenarTareas(){
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ScrumSistema","root","");
+            String [] tareas={"id_tareas","nombreT","estado","encargado"};
+            String sql="select id_tareas,nombreT,estado,encargado from tareas";  
+            model = new DefaultTableModel(null,tareas);
+            Statement st=con.createStatement();
+            ResultSet rs=st.executeQuery(sql);
+            String [] fila=new String [4];
+            while(rs.next()){
+                fila [0]=rs.getString("id_tareas");
+                fila [1]=rs.getString("nombreT");
+                fila [2]=rs.getString("estado");
+                fila [3]=rs.getString("encargado");
+                model.addRow(fila);
+            }
+            jTable3.setModel(model);
+            jTable3.getColumnModel().getColumn(1).setPreferredWidth(1000);
         }catch(Exception e){
         }
     }
@@ -124,8 +147,13 @@ public class VentanaMiembro extends javax.swing.JFrame {
         jLabel8 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
+        jPanel6 = new javax.swing.JPanel();
+        jScrollPane6 = new javax.swing.JScrollPane();
+        jTable3 = new javax.swing.JTable();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -386,6 +414,40 @@ public class VentanaMiembro extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("BurnDown", jPanel3);
 
+        jTable3.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
+            },
+            new String [] {
+                "id_tarea", "Nombre Tarea", "Estado", "Encargado"
+            }
+        ));
+        jTable3.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jTable3MouseClicked(evt);
+            }
+        });
+        jScrollPane6.setViewportView(jTable3);
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
+        );
+
+        jTabbedPane1.addTab("Tareas", jPanel6);
+
         jButton1.setText("Perfil");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -397,6 +459,20 @@ public class VentanaMiembro extends javax.swing.JFrame {
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
+            }
+        });
+
+        jButton3.setText("Terminados");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setText("Rechazados");
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
             }
         });
 
@@ -417,6 +493,12 @@ public class VentanaMiembro extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
+            .addGroup(layout.createSequentialGroup()
+                .addGap(134, 134, 134)
+                .addComponent(jButton3)
+                .addGap(76, 76, 76)
+                .addComponent(jButton4)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -432,7 +514,11 @@ public class VentanaMiembro extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(18, 18, 18)
                         .addComponent(jTabbedPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 505, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(43, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jButton3)
+                    .addComponent(jButton4))
+                .addContainerGap(14, Short.MAX_VALUE))
         );
 
         pack();
@@ -510,6 +596,30 @@ public class VentanaMiembro extends javax.swing.JFrame {
         this.setVisible(false);
     }//GEN-LAST:event_jButton2ActionPerformed
 
+    private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
+        
+            int fila=jTable3.getSelectedRow();
+            try{
+                
+                String estado=jTable3.getValueAt(fila, 2)+"";
+                JOptionPane.showMessageDialog(null,estado);
+            }catch(Exception e){
+                JOptionPane.showMessageDialog(null,"Error: "+e.getMessage());
+            }
+    }//GEN-LAST:event_jTable3MouseClicked
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        HU_Rechazadas rec=new HU_Rechazadas();
+        rec.setVisible(true);
+       // rec.enviarClase(this);
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        HU_Aceptadas acep=new HU_Aceptadas();
+        acep.setVisible(true);
+        //acep.enviarClase(this);
+    }//GEN-LAST:event_jButton3ActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -548,6 +658,8 @@ public class VentanaMiembro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
@@ -565,14 +677,17 @@ public class VentanaMiembro extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JScrollPane jScrollPane4;
     private javax.swing.JScrollPane jScrollPane5;
+    private javax.swing.JScrollPane jScrollPane6;
     private javax.swing.JTabbedPane jTabbedPane1;
     private javax.swing.JTable jTable1;
     private javax.swing.JTable jTable2;
+    private javax.swing.JTable jTable3;
     private javax.swing.JTextField txtApe;
     private javax.swing.JTextField txtComple;
     private javax.swing.JTextArea txtCon;

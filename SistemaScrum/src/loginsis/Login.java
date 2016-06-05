@@ -9,7 +9,9 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.Statement;
 import javax.swing.JOptionPane;
+import javax.swing.table.DefaultTableModel;
 
 /**
  *
@@ -147,7 +149,6 @@ public class Login extends javax.swing.JFrame {
                         miembro.setId(auxid);
                         miembro.setVisible(true);
                         this.setVisible(false);
-                        System.out.println("estoy aqui");
                     }                   
                 }                
             }
