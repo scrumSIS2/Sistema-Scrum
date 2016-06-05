@@ -1,16 +1,20 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : PRUEBAS
-Source Server Version : 50141
+Source Server         : localhost
+Source Server Version : 50505
 Source Host           : localhost:3306
 Source Database       : scrumsistema
 
 Target Server Type    : MYSQL
-Target Server Version : 50141
+Target Server Version : 50505
 File Encoding         : 65001
 
+<<<<<<< HEAD
 Date: 2016-06-05 20:17:37
+=======
+Date: 2016-06-04 19:57:52
+>>>>>>> origin/master
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -29,11 +33,25 @@ CREATE TABLE `historias` (
   `Importancia` int(11) NOT NULL,
   `Complejidad` int(11) NOT NULL,
   PRIMARY KEY (`Id`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=10 DEFAULT CHARSET=latin1;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
+>>>>>>> origin/master
 
 -- ----------------------------
 -- Records of historias
 -- ----------------------------
+<<<<<<< HEAD
+=======
+INSERT INTO `historias` VALUES ('1', 'registro de datos', 'Favio', 'necesito decirle al kevin kaka', 'me pueda escuchar', 'experta', '4', '5');
+INSERT INTO `historias` VALUES ('2', 'jaun', 'marcelo', 'modificar		', 'se pueda ver', 'q se muestre', '5', '2');
+INSERT INTO `historias` VALUES ('3', 'fulll', 'miembro', 'una baseadministrar	', 'lo vea', 'rapido', '34', '14');
+INSERT INTO `historias` VALUES ('4', 'interfas', 'alvaro', 'crear interfas', 'pueda ver', 'rapido', '12', '12');
+INSERT INTO `historias` VALUES ('5', 'conexion', 'daniel', 'quiero ser kk		', 'no salga	', 'rapido', '5', '4');
+INSERT INTO `historias` VALUES ('6', 'Daykor', 'soy kk', 'rapides', 'se vea', 'optimo', '3', '2');
+INSERT INTO `historias` VALUES ('7', 'observar', 'miembro', 'observar info', 'los usuarios sepan', 'rapido', '4', '5');
+>>>>>>> origin/master
 
 -- ----------------------------
 -- Table structure for `horarios`
@@ -105,14 +123,25 @@ CREATE TABLE `info_usuarios` (
   `direccion` varchar(40) NOT NULL,
   `rol` varchar(30) NOT NULL,
   PRIMARY KEY (`id`)
+<<<<<<< HEAD
 ) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=latin1;
+=======
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+>>>>>>> origin/master
 
 -- ----------------------------
 -- Records of info_usuarios
 -- ----------------------------
+<<<<<<< HEAD
 INSERT INTO `info_usuarios` VALUES ('1', 'Juan Daniel', 'Sanchez Montaño', '60398621', 'juandanielsanchez20130@gmail.com', 'Av.Petrolera km 2.5', 'miembro');
 INSERT INTO `info_usuarios` VALUES ('2', 'Favio', 'Torihuano', '61619012', 'favio@hotmail.com', 'Quillacollo', 'scrummaster');
 INSERT INTO `info_usuarios` VALUES ('8', 'fruko', 'villarroel', '288339493', 'fruko@gmail.com', 'callee 566', 'miembro');
+=======
+INSERT INTO `info_usuarios` VALUES ('1', 'Juan Daniel', 'Sanchez Montaño', '60398621', 'juandanielsanchez20130@gmail.com', 'Av.Petrolera km 2.5');
+INSERT INTO `info_usuarios` VALUES ('2', 'Favio', 'Torihuano', '61619012', 'favio@hotmail.com', 'Quillacollo');
+INSERT INTO `info_usuarios` VALUES ('3', 'roberto', 'ahenke', '456789456', 'dsfsk@gmail.com', '777nnskkkdl');
+INSERT INTO `info_usuarios` VALUES ('4', 'david', 'valencia', '45164547', 'tresd@gmail.com', '11dfgd2f5');
+>>>>>>> origin/master
 
 -- ----------------------------
 -- Table structure for `login_usuarios`
@@ -123,15 +152,25 @@ CREATE TABLE `login_usuarios` (
   `usuario` varchar(30) NOT NULL,
   `pass` varchar(30) NOT NULL,
   `tipo_usuario` varchar(20) NOT NULL,
+<<<<<<< HEAD
   PRIMARY KEY (`id_usuario`,`usuario`)
 ) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
+=======
+  PRIMARY KEY (`id_usuario`)
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=latin1;
+>>>>>>> origin/master
 
 -- ----------------------------
 -- Records of login_usuarios
 -- ----------------------------
 INSERT INTO `login_usuarios` VALUES ('1', 'daniel', '123', 'miembro');
 INSERT INTO `login_usuarios` VALUES ('2', 'favio', '123', 'scrum_master');
+<<<<<<< HEAD
 INSERT INTO `login_usuarios` VALUES ('8', 'fruko', '123', 'miembro');
+=======
+INSERT INTO `login_usuarios` VALUES ('3', 'roberto', '123', 'miembro');
+INSERT INTO `login_usuarios` VALUES ('4', 'david', '123', 'miembro');
+>>>>>>> origin/master
 
 -- ----------------------------
 -- Table structure for `tareas`

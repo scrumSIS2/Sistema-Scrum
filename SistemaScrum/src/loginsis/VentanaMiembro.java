@@ -148,8 +148,11 @@ public class VentanaMiembro extends javax.swing.JFrame {
         jLabel11 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
         jPanel6 = new javax.swing.JPanel();
+<<<<<<< HEAD
         jScrollPane6 = new javax.swing.JScrollPane();
         jTable3 = new javax.swing.JTable();
+=======
+>>>>>>> origin/master
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
@@ -414,6 +417,7 @@ public class VentanaMiembro extends javax.swing.JFrame {
 
         jTabbedPane1.addTab("BurnDown", jPanel3);
 
+<<<<<<< HEAD
         jTable3.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
@@ -433,10 +437,13 @@ public class VentanaMiembro extends javax.swing.JFrame {
         });
         jScrollPane6.setViewportView(jTable3);
 
+=======
+>>>>>>> origin/master
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addComponent(jScrollPane6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 509, Short.MAX_VALUE)
         );
         jPanel6Layout.setVerticalGroup(
@@ -444,6 +451,13 @@ public class VentanaMiembro extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel6Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jScrollPane6, javax.swing.GroupLayout.DEFAULT_SIZE, 466, Short.MAX_VALUE))
+=======
+            .addGap(0, 509, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 477, Short.MAX_VALUE)
+>>>>>>> origin/master
         );
 
         jTabbedPane1.addTab("Tareas", jPanel6);

@@ -429,7 +429,11 @@ public class VentanaScrumMaster extends javax.swing.JFrame {
                 .addComponent(jScrollPane5, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+<<<<<<< HEAD
                 .addContainerGap(172, Short.MAX_VALUE))
+=======
+                .addContainerGap(206, Short.MAX_VALUE))
+>>>>>>> origin/master
         );
 
         jTabbedPane1.addTab("Miembros", jPanel2);
@@ -442,7 +446,11 @@ public class VentanaScrumMaster extends javax.swing.JFrame {
         );
         jPanel3Layout.setVerticalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+<<<<<<< HEAD
             .addGap(0, 505, Short.MAX_VALUE)
+=======
+            .addGap(0, 539, Short.MAX_VALUE)
+>>>>>>> origin/master
         );
 
         jTabbedPane1.addTab("BurnDown", jPanel3);
@@ -776,8 +784,6 @@ public class VentanaScrumMaster extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
-    private javax.swing.JButton jButton4;
-    private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
     private javax.swing.JButton jButton7;
     private javax.swing.JButton jButton8;
