@@ -46,14 +46,11 @@ public class RegistrarUsuarios extends javax.swing.JFrame {
         jTextField5 = new javax.swing.JTextField();
         jTextField6 = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
-<<<<<<< HEAD
         jTextField7 = new javax.swing.JTextField();
         jTextField8 = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
         jLabel10 = new javax.swing.JLabel();
-=======
->>>>>>> origin/master
 
         setDefaultCloseOperation(HIDE_ON_CLOSE);
 
@@ -73,15 +70,12 @@ public class RegistrarUsuarios extends javax.swing.JFrame {
 
         jLabel7.setText("Rol: ");
 
-<<<<<<< HEAD
         jTextField6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jTextField6ActionPerformed(evt);
             }
         });
 
-=======
->>>>>>> origin/master
         jButton1.setFont(new java.awt.Font("Tempus Sans ITC", 1, 18)); // NOI18N
         jButton1.setForeground(new java.awt.Color(255, 51, 51));
         jButton1.setText("OK");
@@ -91,15 +85,12 @@ public class RegistrarUsuarios extends javax.swing.JFrame {
             }
         });
 
-<<<<<<< HEAD
         jLabel8.setText("Login:");
 
         jLabel9.setText("Password:");
 
         jLabel10.setText("Asignar Password");
 
-=======
->>>>>>> origin/master
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -118,7 +109,6 @@ public class RegistrarUsuarios extends javax.swing.JFrame {
                                 .addComponent(jLabel4)
                                 .addComponent(jLabel5)
                                 .addComponent(jLabel6)
-<<<<<<< HEAD
                                 .addComponent(jLabel7)
                                 .addComponent(jLabel9)
                                 .addComponent(jLabel8))
@@ -126,11 +116,6 @@ public class RegistrarUsuarios extends javax.swing.JFrame {
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                 .addComponent(jTextField8)
                                 .addComponent(jTextField7)
-=======
-                                .addComponent(jLabel7))
-                            .addGap(18, 18, 18)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
->>>>>>> origin/master
                                 .addComponent(jTextField2)
                                 .addComponent(jTextField3)
                                 .addComponent(jTextField4)
@@ -138,16 +123,11 @@ public class RegistrarUsuarios extends javax.swing.JFrame {
                                 .addComponent(jTextField5)
                                 .addComponent(jTextField6, javax.swing.GroupLayout.DEFAULT_SIZE, 190, Short.MAX_VALUE))))
                     .addGroup(layout.createSequentialGroup()
-<<<<<<< HEAD
                         .addGap(139, 139, 139)
                         .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(135, 135, 135)
                         .addComponent(jLabel10)))
-=======
-                        .addGap(140, 140, 140)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)))
->>>>>>> origin/master
                 .addContainerGap(74, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -175,7 +155,6 @@ public class RegistrarUsuarios extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jTextField5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-<<<<<<< HEAD
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jLabel10)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 13, Short.MAX_VALUE)
@@ -193,15 +172,6 @@ public class RegistrarUsuarios extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addComponent(jButton1)
                 .addGap(18, 18, 18))
-=======
-                .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel7)
-                    .addComponent(jTextField6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(41, 41, 41)
-                .addComponent(jButton1)
-                .addContainerGap(61, Short.MAX_VALUE))
->>>>>>> origin/master
         );
 
         pack();
@@ -211,32 +181,20 @@ public class RegistrarUsuarios extends javax.swing.JFrame {
         try{
             Class.forName("com.mysql.jdbc.Driver");
             Connection con=DriverManager.getConnection("jdbc:mysql://localhost/ScrumSistema","root","");
-<<<<<<< HEAD
             String sql="insert into info_usuarios (nombre,apellido,telefono,email,direccion,rol)"+"VALUES(?,?,?,?,?,?)";
-=======
-            String sql="insert into info_usuarios (nombre,apellido,telefono,email,direccion)"+"VALUES(?,?,?,?,?)";
->>>>>>> origin/master
             PreparedStatement ps=con.prepareStatement(sql);
             ps.setString(1,jTextField1.getText());
             ps.setString(2,jTextField2.getText());
             ps.setString(3,jTextField3.getText());
             ps.setString(4,jTextField4.getText());
             ps.setString(5,jTextField5.getText());
-<<<<<<< HEAD
             ps.setString(6,jTextField6.getText());
-=======
->>>>>>> origin/master
             ps.executeUpdate();
             
             sql="insert into login_usuarios (usuario,pass,tipo_usuario)"+"VALUES(?,?,?)";
             ps=con.prepareStatement(sql);
-<<<<<<< HEAD
             ps.setString(1,jTextField7.getText());
             ps.setString(2,jTextField8.getText());
-=======
-            ps.setString(1,jTextField1.getText().trim());
-            ps.setString(2,"123");
->>>>>>> origin/master
             ps.setString(3,jTextField6.getText());
             ps.executeUpdate();
             
@@ -247,13 +205,10 @@ public class RegistrarUsuarios extends javax.swing.JFrame {
         actualizarDato.llenarEquipo();
     }//GEN-LAST:event_jButton1ActionPerformed
 
-<<<<<<< HEAD
     private void jTextField6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField6ActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_jTextField6ActionPerformed
 
-=======
->>>>>>> origin/master
     /**
      * @param args the command line arguments
      */
@@ -292,32 +247,23 @@ public class RegistrarUsuarios extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
-<<<<<<< HEAD
     private javax.swing.JLabel jLabel10;
-=======
->>>>>>> origin/master
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
-<<<<<<< HEAD
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
-=======
->>>>>>> origin/master
     private javax.swing.JTextField jTextField1;
     private javax.swing.JTextField jTextField2;
     private javax.swing.JTextField jTextField3;
     private javax.swing.JTextField jTextField4;
     private javax.swing.JTextField jTextField5;
     private javax.swing.JTextField jTextField6;
-<<<<<<< HEAD
     private javax.swing.JTextField jTextField7;
     private javax.swing.JTextField jTextField8;
-=======
->>>>>>> origin/master
     // End of variables declaration//GEN-END:variables
 
     void enviarClase(VentanaScrumMaster aThis) {
