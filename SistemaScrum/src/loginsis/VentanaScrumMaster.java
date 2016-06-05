@@ -34,12 +34,35 @@ public class VentanaScrumMaster extends javax.swing.JFrame {
         initComponents();
         llenarHistorias();
         llenarEquipo();
+        llenarTareas();
     }
     public void setNombre(String nombre){
         this.nombre=nombre;
     }
     public void setId(String id){
         this.id=id;
+    }
+    public void llenarTareas(){
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ScrumSistema","root","");
+            String [] tareas={"id_tareas","nombreT","estado","encargado"};
+            String sql="select id_tareas,nombreT,estado,encargado from tareas";  
+            model = new DefaultTableModel(null,tareas);
+            Statement st=con.createStatement();
+            ResultSet rs=st.executeQuery(sql);
+            String [] fila=new String [4];
+            while(rs.next()){
+                fila [0]=rs.getString("id_tareas");
+                fila [1]=rs.getString("nombreT");
+                fila [2]=rs.getString("estado");
+                fila [3]=rs.getString("encargado");
+                model.addRow(fila);
+            }
+            jTable4.setModel(model);
+            jTable4.getColumnModel().getColumn(1).setPreferredWidth(1000);
+        }catch(Exception e){
+        }
     }
     public void llenarHistorias(){
         try{
@@ -715,25 +738,14 @@ public class VentanaScrumMaster extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jTable4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable4MouseClicked
-        if(evt.getButton()==1){
-            int fila=jTable1.getSelectedRow();
+        int fila=jTable4.getSelectedRow();
             try{
-                Class.forName("com.mysql.jdbc.Driver");
-                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ScrumSistema","root","");
-                String sql="select * from historias where Id="+jTable1.getValueAt(fila, 0);
-                Statement st=con.createStatement();
-                ResultSet rs=st.executeQuery(sql);
-                rs.next();
-                txtYo.setText(rs.getString("Yo_como"));
-                txtRe.setText(rs.getString("Requiero"));
-                txtTal.setText(rs.getString("Tal_que"));
-                txtCon.setText(rs.getString("Condiciones_de_Satisfaccion"));
-                txtImpor.setText(rs.getString("Importancia"));
-                txtComple.setText(rs.getString("Complejidad"));
+                
+                String estado=jTable4.getValueAt(fila, 2)+"";
+                JOptionPane.showMessageDialog(null,estado);
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null,"Error: "+e.getMessage());
             }
-        }
     }//GEN-LAST:event_jTable4MouseClicked
 
     /**
