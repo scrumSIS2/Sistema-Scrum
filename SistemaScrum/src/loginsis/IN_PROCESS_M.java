@@ -1,21 +1,38 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package loginsis;
 
-/**
- *
- * @author DeadPool
- */
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import javax.swing.JOptionPane;
+
 public class IN_PROCESS_M extends javax.swing.JFrame {
 
-    /**
-     * Creates new form IN_PROCESS_M
-     */
+    String nombreTarea="";
+    String descripcion="";
+    String responsable ="";
+    String id_tarea = "";
+    VentanaScrumMaster v;
     public IN_PROCESS_M() {
         initComponents();
+    }
+    public void setIdTarea(String tar){
+        id_tarea=tar;
+    }
+    public void enviarClase(VentanaScrumMaster v1){
+        v=v1;
+    }
+    public void setNombreTarea(String nomTar){
+        nombreTarea=nomTar;
+        txtNomt2.setText(nomTar);
+    }
+    public void setDescripcion(String des){
+        descripcion=des;
+        txt_desc2.setText(des);
+    }
+    public void setResponsable(String res){
+        responsable=res;
+        jTextField1.setText(res);
     }
 
     /**
@@ -100,7 +117,23 @@ public class IN_PROCESS_M extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        // TODO add your handling code here:
+        try{
+            Class.forName("com.mysql.jdbc.Driver");
+            Connection con=DriverManager.getConnection("jdbc:mysql://localhost/ScrumSistema","root","");
+                        
+            String sql="update tareas set estado=?"+"where id_tareas=?";
+            PreparedStatement ps=con.prepareStatement(sql);
+            ps.setString(1,"done");
+            ps.setString(2,id_tarea);
+            ps.executeUpdate();
+            
+            v.llenarTareas();
+           
+            
+            this.setVisible(false);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(null,"Error: "+e.getMessage());
+        }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**

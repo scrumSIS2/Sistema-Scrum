@@ -774,7 +774,12 @@ public class VentanaScrumMaster extends javax.swing.JFrame {
                    porHacer.setVisible(true);
                 }else{
                     if (estado.equals("in process")) {
-                        
+                        proceso.setNombreTarea(rs.getString("nombreT"));
+                        proceso.setDescripcion(rs.getString("descripcion"));
+                        proceso.setResponsable(jTable4.getValueAt(fila, 3)+"");
+                        proceso.setIdTarea(id_tarea);
+                        proceso.enviarClase(this);
+                        proceso.setVisible(true);
                     } else {
                         //done
                     }
