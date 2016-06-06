@@ -1,8 +1,3 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
 package loginsis;
 
 import java.sql.Connection;
@@ -12,10 +7,7 @@ import java.sql.ResultSet;
 import java.sql.Statement;
 import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
-/**
- *
- * @author Daniel
- */
+
 public class VentanaScrumMaster extends javax.swing.JFrame {
     DefaultTableModel model;
     DefaultTableModel model1;
@@ -184,16 +176,25 @@ public class VentanaScrumMaster extends javax.swing.JFrame {
 
         jLabel7.setText("Complejidad");
 
+        txtImpor.setEditable(false);
+
+        txtComple.setEditable(false);
+
+        txtYo.setEditable(false);
+
+        txtRe.setEditable(false);
         txtRe.setColumns(20);
         txtRe.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         txtRe.setRows(5);
         jScrollPane2.setViewportView(txtRe);
 
+        txtCon.setEditable(false);
         txtCon.setColumns(20);
         txtCon.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         txtCon.setRows(5);
         jScrollPane4.setViewportView(txtCon);
 
+        txtTal.setEditable(false);
         txtTal.setColumns(20);
         txtTal.setFont(new java.awt.Font("Kalinga", 0, 14)); // NOI18N
         txtTal.setRows(5);
@@ -206,9 +207,13 @@ public class VentanaScrumMaster extends javax.swing.JFrame {
             }
         });
 
+        id_his.setEditable(false);
+
         jLabel13.setText("ID_Historia");
 
         jLabel14.setText("Nomb_His");
+
+        nomhis.setEditable(false);
 
         jButton4.setText("Asignar Tareas");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -291,7 +296,7 @@ public class VentanaScrumMaster extends javax.swing.JFrame {
                     .addGroup(jPanel4Layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addComponent(jLabel5)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 65, Short.MAX_VALUE)
                         .addGroup(jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel6)
                             .addComponent(txtImpor, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
@@ -391,13 +396,13 @@ public class VentanaScrumMaster extends javax.swing.JFrame {
             .addGroup(jPanel5Layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
+                    .addComponent(jLabel9, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
                     .addComponent(jLabel10, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE)
                     .addGroup(jPanel5Layout.createSequentialGroup()
                         .addComponent(jLabel12)
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 18, Short.MAX_VALUE))
+                    .addComponent(jLabel11, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel5Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(txtTel, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -605,9 +610,9 @@ public class VentanaScrumMaster extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        verInfo = new VerDatosUsuario();
+        
         verInfo.setID(id);
         try {
             Class.forName("com.mysql.jdbc.Driver");
@@ -621,13 +626,15 @@ public class VentanaScrumMaster extends javax.swing.JFrame {
                     verInfo.setjTextField2(result.getString("apellido"));
                     verInfo.setjTextField3(result.getString("telefono"));
                     verInfo.setjTextField4(result.getString("email"));
-                    verInfo.setjTextField5(result.getString("direccion"));            
+                    verInfo.setjTextField5(result.getString("direccion")); 
+                    verInfo.setjTextField6(result.getString("rol"));
                 }           
             }
         } catch (Exception e) {
               JOptionPane.showMessageDialog(null, "error");
         }
         verInfo.setVisible(true);
+        verInfo.enviarClass(this);
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

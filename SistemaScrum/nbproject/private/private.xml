@@ -2,17 +2,10 @@
 <project-private xmlns="http://www.netbeans.org/ns/project-private/1">
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/1"/>
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
-    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/1">
-        <file>file:/C:/Users/NATHAN/Desktop/php/Sistema-Scrum/SistemaScrum/src/loginsis/Login.java</file>
-        <file>file:/C:/Users/NATHAN/Desktop/php/Sistema-Scrum/SistemaScrum/src/loginsis/VentanaScrumMaster.java</file>
-        <file>file:/C:/Users/NATHAN/Desktop/php/Sistema-Scrum/SistemaScrum/src/loginsis/RegistrarUsuarios.java</file>
-        <file>file:/C:/Users/NATHAN/Desktop/php/Sistema-Scrum/SistemaScrum/src/loginsis/VentanaMiembro.java</file>
-        <file>file:/C:/Users/NATHAN/Desktop/php/Sistema-Scrum/SistemaScrum/src/loginsis/VerDatosUsuario.java</file>
-        <file>file:/C:/Users/NATHAN/Desktop/php/Sistema-Scrum/SistemaScrum/src/loginsis/VentanaHistorias.java</file>
-    </open-files>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Fabio/Documents/NetBeansProjects/Sistema-Scrum/SistemaScrum/src/loginsis/VentanaScrumMaster.java</file>
+            <file>file:/C:/Users/Fabio/Documents/NetBeansProjects/Sistema-Scrum/SistemaScrum/src/loginsis/Login.java</file>
+            <file>file:/C:/Users/Fabio/Documents/NetBeansProjects/Sistema-Scrum/SistemaScrum/src/loginsis/VerDatosUsuario.java</file>
             <file>file:/C:/Users/Fabio/Documents/NetBeansProjects/Sistema-Scrum/SistemaScrum/src/loginsis/VentanaMiembro.java</file>
         </group>
     </open-files>
