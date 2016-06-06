@@ -24,7 +24,9 @@ public class VentanaMiembro extends javax.swing.JFrame {
     VerDatosUsuario verInfo =new VerDatosUsuario();
     VentanaScrumMaster v;
     Login log=new Login();
-    
+    TO_DO porHacer =new TO_DO();
+    IN_PROCESS proceso = new IN_PROCESS();
+    DONE hecho = new DONE();
     public VentanaMiembro() {
         initComponents();
         llenarHistorias();
@@ -576,14 +578,40 @@ public class VentanaMiembro extends javax.swing.JFrame {
 
     private void jTable3MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable3MouseClicked
         
-            int fila=jTable3.getSelectedRow();
+                    int fila=jTable3.getSelectedRow();
             try{
                 
                 String estado=jTable3.getValueAt(fila, 2)+"";
-                JOptionPane.showMessageDialog(null,estado);
+                String id_tarea=jTable3.getValueAt(fila, 0)+"";
+                
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ScrumSistema","root","");
+                String sql="select nombreT,descripcion,estado,encargado from tareas where id_tareas="+id_tarea;
+                Statement st=con.createStatement();
+                ResultSet rs=st.executeQuery(sql);
+                rs.next();
+                
+               
+                if (estado.equals("to do")) {
+                   porHacer.setTarea(rs.getString("nombreT"));
+                   porHacer.setdescrip(rs.getString("descripcion"));
+                   porHacer.setIdUsuario(id);
+                   porHacer.setIDTarea(id_tarea);
+                   porHacer.setrol("miembro");
+                   porHacer.setNombreUsuario(nombre);
+                   porHacer.enviarClaseMiembro(this);
+                   porHacer.setVisible(true);
+                }else{
+                    if (estado.equals("in process")) {
+                        
+                    } else {
+                        //done
+                    }
+                }
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null,"Error: "+e.getMessage());
             }
+
     }//GEN-LAST:event_jTable3MouseClicked
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
