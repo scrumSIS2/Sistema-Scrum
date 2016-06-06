@@ -19,9 +19,11 @@ public class VentanaScrumMaster extends javax.swing.JFrame {
     Login log=new Login();
     AsignarTareas tareas = new AsignarTareas();
     
-    /**
-     * Creates new form VentanaScrumMaster
-     */
+    TO_DO porHacer =new TO_DO();
+    IN_PROCESS_M proceso = new IN_PROCESS_M();
+    DONE hecho = new DONE();
+    
+  
     public VentanaScrumMaster() {     
         initComponents();
         llenarHistorias();
@@ -477,14 +479,14 @@ public class VentanaScrumMaster extends javax.swing.JFrame {
 
         jTable4.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null},
+                {null, null, null, null}
             },
             new String [] {
-                "id_tarea", "Nombre Tarea", "Descripcion", "Estado", "Encargado"
+                "id_tarea", "Nombre Tarea", "Estado", "Encargado"
             }
         ));
         jTable4.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -687,8 +689,8 @@ public class VentanaScrumMaster extends javax.swing.JFrame {
                 txtCon.setText(rs.getString("Condiciones_de_Satisfaccion"));
                 txtImpor.setText(rs.getString("Importancia"));
                 txtComple.setText(rs.getString("Complejidad"));
-                
-                
+               // String padre="DELETE FROM tareas WHERE id_historias IN(select Id from HU_rechazadas)";
+               // Statement stt=con.createStatement();
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null,"Error: "+e.getMessage());
             }
@@ -739,7 +741,9 @@ public class VentanaScrumMaster extends javax.swing.JFrame {
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
                 int fila=jTable1.getSelectedRow();
                 tareas.setIDPadre(jTable1.getValueAt(fila, 0)+"");
+                tareas.enviarclaseMaster(this);
                 tareas.setVisible(true);
+                
                // String sql="select * from info_usuarios where id="+jTable2.getValueAt(fila, 0);
             
     }//GEN-LAST:event_jButton4ActionPerformed
@@ -749,7 +753,32 @@ public class VentanaScrumMaster extends javax.swing.JFrame {
             try{
                 
                 String estado=jTable4.getValueAt(fila, 2)+"";
-                JOptionPane.showMessageDialog(null,estado);
+                String id_tarea=jTable4.getValueAt(fila, 0)+"";
+                
+                Class.forName("com.mysql.jdbc.Driver");
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost/ScrumSistema","root","");
+                String sql="select nombreT,descripcion,estado,encargado from tareas where id_tareas="+id_tarea;
+                Statement st=con.createStatement();
+                ResultSet rs=st.executeQuery(sql);
+                rs.next();
+                
+               
+                if (estado.equals("to do")) {
+                   porHacer.setTarea(rs.getString("nombreT"));
+                   porHacer.setdescrip(rs.getString("descripcion"));
+                   porHacer.setIdUsuario(id);
+                   porHacer.setIDTarea(id_tarea);
+                   porHacer.setrol("scrum_master");
+                   porHacer.setNombreUsuario(nombre);
+                   porHacer.enviarClaseMaster(this);
+                   porHacer.setVisible(true);
+                }else{
+                    if (estado.equals("in process")) {
+                        
+                    } else {
+                        //done
+                    }
+                }
             }catch(Exception e){
                 JOptionPane.showMessageDialog(null,"Error: "+e.getMessage());
             }

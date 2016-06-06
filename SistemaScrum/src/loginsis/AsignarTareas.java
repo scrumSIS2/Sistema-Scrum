@@ -19,6 +19,7 @@ public class AsignarTareas extends javax.swing.JFrame {
      */
     String IDpadre;
     DefaultTableModel model;
+    VentanaScrumMaster vm;
     public AsignarTareas() {
         initComponents();
         llenarTareas();
@@ -184,6 +185,7 @@ public class AsignarTareas extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null,"Error: "+e.getMessage());
         }
         llenarTareas();
+        vm.llenarTareas();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed
@@ -236,4 +238,8 @@ public class AsignarTareas extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private javax.swing.JTextField jTextField1;
     // End of variables declaration//GEN-END:variables
+
+    void enviarclaseMaster(VentanaScrumMaster aThis) {
+        vm = aThis;
+    }
 }
