@@ -610,7 +610,10 @@ public class VentanaMiembro extends javax.swing.JFrame {
                         proceso.enviarClase(this);
                         proceso.setVisible(true);
                     } else {
-                        //done
+                        hecho.setNombreTarea(rs.getString("nombreT"));
+                        hecho.setDescripcion(rs.getString("descripcion"));
+                        hecho.setResponsable(jTable3.getValueAt(fila, 3)+"");
+                        hecho.setVisible(true);
                     }
                 }
             }catch(Exception e){

@@ -186,6 +186,8 @@ public class AsignarTareas extends javax.swing.JFrame {
         }
         llenarTareas();
         vm.llenarTareas();
+        jTextField1.setText("");
+        jTextArea1.setText("");
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jTextField1ActionPerformed

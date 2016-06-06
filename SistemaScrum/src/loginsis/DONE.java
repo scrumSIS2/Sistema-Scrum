@@ -11,9 +11,9 @@ package loginsis;
  */
 public class DONE extends javax.swing.JFrame {
 
-    /**
-     * Creates new form DONE
-     */
+    String nomTar="";
+    String descr="";
+    String respon="";
     public DONE() {
         initComponents();
     }
@@ -130,4 +130,19 @@ public class DONE extends javax.swing.JFrame {
     private javax.swing.JTextField txt_nom;
     private javax.swing.JTextField txt_nonmt3;
     // End of variables declaration//GEN-END:variables
+
+    void setNombreTarea(String string) {
+        nomTar=string;
+        txt_nonmt3.setText(string);
+    }
+
+    void setDescripcion(String string) {
+        descr=string;
+        txt_descrip3.setText(string);
+    }
+
+    void setResponsable(String string) {
+        respon=string;
+        txt_nom.setText(string);
+    }
 }
