@@ -1,7 +1,7 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : PRUEBAS
+Source Server         : wendy
 Source Server Version : 50141
 Source Host           : localhost:3306
 Source Database       : scrumsistema
@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50141
 File Encoding         : 65001
 
-Date: 2016-06-06 20:55:30
+Date: 2016-06-06 16:02:18
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -153,13 +153,15 @@ CREATE TABLE `tareas` (
   `id_encargado` varchar(11) DEFAULT NULL,
   PRIMARY KEY (`id_tareas`),
   KEY `id_historias` (`id_historias`)
-) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tareas
 -- ----------------------------
-INSERT INTO `tareas` VALUES ('6', 'base datos', 'para guardar informacion biografica', 'in process', 'favio', '6', '2');
+INSERT INTO `tareas` VALUES ('6', 'base datos', 'para guardar informacion biografica', 'done', 'favio', '6', '2');
 INSERT INTO `tareas` VALUES ('7', 'cambiar info', 'cambiar datos de mi perfil', 'in process', 'daniel', '6', '1');
-INSERT INTO `tareas` VALUES ('8', 'ver tarea', 'ver tareas', 'in process', 'favio', '6', '2');
+INSERT INTO `tareas` VALUES ('8', 'ver tarea', 'ver tareas', 'done', 'favio', '6', '2');
 INSERT INTO `tareas` VALUES ('9', 'tarea 1', 'hacer interfas', 'in process', 'daniel', '6', '1');
-INSERT INTO `tareas` VALUES ('10', 'tarea 2', 'hacer bds', 'in process', 'Kevin', '6', '5');
+INSERT INTO `tareas` VALUES ('10', 'tarea 2', 'hacer bds', 'done', 'Kevin', '6', '5');
+INSERT INTO `tareas` VALUES ('11', 'contar empleado', 'contar la cantidad de empleados actuales', 'to do', null, '6', null);
+INSERT INTO `tareas` VALUES ('12', 'registrar empleado', 'saber la puntualidad', 'to do', null, '6', null);
